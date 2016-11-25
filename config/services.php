@@ -34,5 +34,8 @@ return [
         'key'    => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    'pipedrive' => [
+        'token' => '1e60cf2db74cd942fb8dea370e5c81b124b48dc1',
+    ],
 
 ];

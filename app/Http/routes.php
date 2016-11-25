@@ -11,6 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/auth/logout',function(){
+	Auth::logout();
+	return view('auth.login');
 });
+Route::get('/', 'indexController@index');
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController'
+]);
+Route::group(['prefix'=>'admin','middleware'=>'auth.role:admin'],function(){
+
+	Route::get('','indexController@index');
+	Route::get('solicitar-visita','AgendarVisitaController@index');
+			//Route::post('solicitar-visita/buscaEmpresa','AgendarVisitaController@index');
+	Route::post('solicitar-visita/buscaEmpresa', ['as' => 'admin.solicitar-visita.buscaEmpresa', 'uses' =>'AgendarVisitaController@pesquisar']);
+	
+});
+
