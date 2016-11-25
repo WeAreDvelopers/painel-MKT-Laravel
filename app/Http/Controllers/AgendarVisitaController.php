@@ -11,6 +11,7 @@ use Devio\Pipedrive\Pipedrive;
 
 class AgendarVisitaController extends Controller
 {
+	
     public function index(){
     	return view("SolicitarVisita.index");
     }
@@ -20,11 +21,15 @@ class AgendarVisitaController extends Controller
 
     $empresa = $request->input('empresa');
     $response = $pipedrive->organizations->findByName($empresa);
-
-    	
-
-
 	return  $response->getData();
 	  	
+    }
+
+    public function dadosEmpresa($idEmpresa,Pipedrive $pipedrive){
+
+    	
+    	$response = $pipedrive->organizations->find($idEmpresa);
+    	$dadosEmpresa =  $response->getData();
+    	return view("SolicitarVisita.form_visita",compact('dadosEmpresa'));
     }
 }

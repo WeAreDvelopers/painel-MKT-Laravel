@@ -26,6 +26,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth.role:admin'],function(){
 	Route::get('solicitar-visita','AgendarVisitaController@index');
 			//Route::post('solicitar-visita/buscaEmpresa','AgendarVisitaController@index');
 	Route::post('solicitar-visita/buscaEmpresa', ['as' => 'admin.solicitar-visita.buscaEmpresa', 'uses' =>'AgendarVisitaController@pesquisar']);
+	Route::get('formulario-visita/{idEmpresa}', ['as' => 'admin.formulario-visita', 'uses' =>'AgendarVisitaController@dadosEmpresa']);
 	
 });
 
