@@ -18,9 +18,11 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password', 60);
             $table->string('role');
+            $table->string('unidade');
             $table->string('celular');
             $table->string('token_pipedrive');
             $table->integer('id_pipedrive');
+            $table->string('icon_url');
             $table->rememberToken();
             $table->timestamps();
         });

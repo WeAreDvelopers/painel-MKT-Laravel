@@ -653,7 +653,7 @@ a:focus {
     -webkit-transform: translateZ(0);
   }
   .sidebar-mini.sidebar-collapse .main-header .logo {
-    width: 50px;
+    /*width: 50px;*/
   }
   .sidebar-mini.sidebar-collapse .main-header .logo > .logo-mini {
     display: block;

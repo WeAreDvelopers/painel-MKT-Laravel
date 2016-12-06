@@ -146,7 +146,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Devio\Pipedrive\PipedriveServiceProvider::class,
-
+       
     ],
 
     /*

@@ -17,7 +17,7 @@
     <!-- Main content -->
     <section class="content">
 		<div class="col-md-8 col-sm-12 ">
-		 <form method="POST" id="formPesquisa"  action="{{ route('admin.solicitar-visita.buscaEmpresa') }}" accept-charset="UTF-8">
+		 <form method="POST" id="formPesquisa"  action="{{ route('admin.solicitar-visita.buscaEmpresa') }}" accept-charset="UTF-8" >
 			
 		    	<div class="box box-primary">
 		            <div class="box-header with-border">
@@ -29,12 +29,15 @@
 		              <div class="box-body">
 		                <div class="form-group">
 		                  <label for="exampleInputEmail1">Empresa</label>
-		                  <input type="text" name="empresa" class="form-control" id="exampleInputEmail1" placeholder="Nome cadatrado no pipedrive">
+		                  <input type="text" name="empresa" class="form-control" id="empresa" placeholder="Nome cadatrado no pipedrive ou ID">
 		                </div>
 		              </div>
 		              <!-- /.box-body -->
 		              <div class="box-footer">
-		                <button type="button" class="btn btn-primary pull-right  btn-flat" id="btPesquisar">Pesquisar</button>
+		              <div class="col-md-6 no-padding"><button type="button" class="btn btn-success btn-flat" id="btSorte">Estou com sorte</button></div>
+		              <div class="col-md-6 no-padding"><button type="button" class="btn btn-primary pull-right  btn-flat" id="btPesquisar">Pesquisar</button></div>
+		               
+		                
 		              </div>
 		           
 		          </div>
@@ -94,6 +97,10 @@
 					})
 					
 				})
+			})
+			$("#btSorte").click(function(){
+				var id = $("#empresa").val()
+				window.location = '/admin/formulario-visita/'+id;
 			})
 
 		})
